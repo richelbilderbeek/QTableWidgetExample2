@@ -16,7 +16,6 @@ public:
   ~QtDialog();
 
 protected:
-  void changeEvent(QEvent *e);
 
 private:
   Ui::QtDialog *ui;

@@ -1,7 +1,4 @@
 #include "qtdialog.h"
-
-#include <string>
-
 #include <boost/lexical_cast.hpp>
 
 #include "ui_qtdialog.h"
@@ -27,13 +24,7 @@ QtDialog::QtDialog(QWidget *parent) :
         i->setFlags(
             Qt::ItemIsSelectable
           | Qt::ItemIsUserCheckable
-          //| Qt::ItemIsEnabled
         );
-        //i->setFlags(
-        //    Qt::ItemIsSelectable
-        //  | Qt::ItemIsUserCheckable
-        //  | Qt::ItemIsEnabled
-        //);
         i->setCheckState(Qt::Unchecked);
       }
       else
@@ -43,12 +34,13 @@ QtDialog::QtDialog(QWidget *parent) :
             Qt::ItemIsSelectable
           | Qt::ItemIsEditable
           | Qt::ItemIsEnabled);
-        const std::string s = "("
-          + boost::lexical_cast<std::string>(col)
+        const QString s = "("
+          + QString::number(col)
           + ","
-          + boost::lexical_cast<std::string>(row)
-          + ")";
-        i->setText(s.c_str());
+          + QString::number(row)
+          + ")"
+        ;
+        i->setText(s);
       }
       t->setItem(row, col, i);
     }
@@ -61,16 +53,4 @@ QtDialog::QtDialog(QWidget *parent) :
 QtDialog::~QtDialog()
 {
   delete ui;
-}
-
-void QtDialog::changeEvent(QEvent *e)
-{
-  QDialog::changeEvent(e);
-  switch (e->type()) {
-  case QEvent::LanguageChange:
-    ui->retranslateUi(this);
-    break;
-  default:
-    break;
-  }
 }
