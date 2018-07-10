@@ -16,10 +16,6 @@
     <pointsize>12</pointsize>
    </font>
   </property>
-  <property name="windowIcon">
-   <iconset resource="CppQTableWidgetExample2.qrc">
-    <normaloff>:/images/R.png</normaloff>:/images/R.png</iconset>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QTableWidget" name="tableWidget">
@@ -54,8 +50,6 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="CppQTableWidgetExample2.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
